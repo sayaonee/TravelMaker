@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TravelMakerModelStoreContainer" CdmEntityContainer="TravelMakerEntities">
+    <EntitySetMapping Name="Account">
+      <EntityTypeMapping TypeName="TravelMakerModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="email_Approved" ColumnName="email_Approved" />
+          <ScalarProperty Name="email_ID" ColumnName="email_ID" />
+          <ScalarProperty Name="user_Id" ColumnName="user_Id" />
+          <ScalarProperty Name="userAccount" ColumnName="userAccount" />
+          <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+          <ScalarProperty Name="userPhone" ColumnName="userPhone" />
+          <ScalarProperty Name="userAddress" ColumnName="userAddress" />
+          <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+          <ScalarProperty Name="userPhoto" ColumnName="userPhoto" />
+          <ScalarProperty Name="registerDate" ColumnName="registerDate" />
+          <ScalarProperty Name="roleAdmin" ColumnName="roleAdmin" />
+          <ScalarProperty Name="attractionOwner" ColumnName="attractionOwner" />
+          <ScalarProperty Name="travelOwner" ColumnName="travelOwner" />
+          <ScalarProperty Name="searchLog" ColumnName="searchLog" />
+          <ScalarProperty Name="loginLog" ColumnName="loginLog" />
+          <ScalarProperty Name="OrderLog" ColumnName="OrderLog" />
+          <ScalarProperty Name="cart" ColumnName="cart" />
+          <ScalarProperty Name="userComment" ColumnName="userComment" />
+          <ScalarProperty Name="userFavorite" ColumnName="userFavorite" />
+          <ScalarProperty Name="userMessage" ColumnName="userMessage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attraction">
+      <EntityTypeMapping TypeName="TravelMakerModel.Attraction">
+        <MappingFragment StoreEntitySet="Attraction">
+          <ScalarProperty Name="attractionDistrict" ColumnName="attractionDistrict" />
+          <ScalarProperty Name="attrName" ColumnName="attrName" />
+          <ScalarProperty Name="attr_Id" ColumnName="attr_Id" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="attractionOwner" ColumnName="attractionOwner" />
+          <ScalarProperty Name="attractionCover" ColumnName="attractionCover" />
+          <ScalarProperty Name="attractionImages" ColumnName="attractionImages" />
+          <ScalarProperty Name="attractionPhone" ColumnName="attractionPhone" />
+          <ScalarProperty Name="attractionAddress" ColumnName="attractionAddress" />
+          <ScalarProperty Name="attractionMenu" ColumnName="attractionMenu" />
+          <ScalarProperty Name="attractionCity" ColumnName="attractionCity" />
+          <ScalarProperty Name="attractionType" ColumnName="attractionType" />
+          <ScalarProperty Name="attractionInfo" ColumnName="attractionInfo" />
+          <ScalarProperty Name="attractionComment" ColumnName="attractionComment" />
+          <ScalarProperty Name="attractionRate" ColumnName="attractionRate" />
+          <ScalarProperty Name="attractionPrice" ColumnName="attractionPrice" />
+          <ScalarProperty Name="travelReferral" ColumnName="travelReferral" />
+          <ScalarProperty Name="lastUpdate" ColumnName="lastUpdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comment">
+      <EntityTypeMapping TypeName="TravelMakerModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="cm_Id" ColumnName="cm_Id" />
+          <ScalarProperty Name="target_Id" ColumnName="target_Id" />
+          <ScalarProperty Name="user_Id" ColumnName="user_Id" />
+          <ScalarProperty Name="cmRate" ColumnName="cmRate" />
+          <ScalarProperty Name="cmFront" ColumnName="cmFront" />
+          <ScalarProperty Name="cmGB" ColumnName="cmGB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Message">
+      <EntityTypeMapping TypeName="TravelMakerModel.Message">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="msg_Id" ColumnName="msg_Id" />
+          <ScalarProperty Name="user_Id" ColumnName="user_Id" />
+          <ScalarProperty Name="attr_Id" ColumnName="attr_Id" />
+          <ScalarProperty Name="QA" ColumnName="QA" />
+          <ScalarProperty Name="message1" ColumnName="message" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="TravelMakerModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="order_Id" ColumnName="order_Id" />
+          <ScalarProperty Name="user_Id" ColumnName="user_Id" />
+          <ScalarProperty Name="travel_Id" ColumnName="travel_Id" />
+          <ScalarProperty Name="orderDate" ColumnName="orderDate" />
+          <ScalarProperty Name="orderMessage" ColumnName="orderMessage" />
+          <ScalarProperty Name="orderCount" ColumnName="orderCount" />
+          <ScalarProperty Name="orderPrice" ColumnName="orderPrice" />
+          <ScalarProperty Name="orderCost" ColumnName="orderCost" />
+          <ScalarProperty Name="orderType" ColumnName="orderType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Travel">
+      <EntityTypeMapping TypeName="TravelMakerModel.Travel">
+        <MappingFragment StoreEntitySet="Travel">
+          <ScalarProperty Name="travelTitle" ColumnName="travelTitle" />
+          <ScalarProperty Name="travel_Id" ColumnName="travel_Id" />
+          <ScalarProperty Name="DATA" ColumnName="DATA" />
+          <ScalarProperty Name="travelOwner" ColumnName="travelOwner" />
+          <ScalarProperty Name="travelCover" ColumnName="travelCover" />
+          <ScalarProperty Name="userFavorite" ColumnName="userFavorite" />
+          <ScalarProperty Name="travelInfo" ColumnName="travelInfo" />
+          <ScalarProperty Name="travelDate" ColumnName="travelDate" />
+          <ScalarProperty Name="travelCity" ColumnName="travelCity" />
+          <ScalarProperty Name="travelType" ColumnName="travelType" />
+          <ScalarProperty Name="travelComment" ColumnName="travelComment" />
+          <ScalarProperty Name="travelRate" ColumnName="travelRate" />
+          <ScalarProperty Name="attractionReferral" ColumnName="attractionReferral" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MapCenter">
+      <EntityTypeMapping TypeName="TravelMakerModel.MapCenter">
+        <MappingFragment StoreEntitySet="MapCenter">
+          <ScalarProperty Name="mcPosition" ColumnName="mcPosition" />
+          <ScalarProperty Name="mcName" ColumnName="mcName" />
+          <ScalarProperty Name="mc_Id" ColumnName="mc_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

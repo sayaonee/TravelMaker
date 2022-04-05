@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  shrink-to-fit=no">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/slick/css/slick.css">
+    <link rel="stylesheet" href="/slick/css/slick-theme.css">
+    <link rel="stylesheet" href="/home/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/css/navbar.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+
+
+
+    <title>Travel maker</title>
+
+</head>
+
+<body>
+
+
+
+    <input type="checkbox" name="" id="main-control">
+   
+    <header class="main-header ">
+        <div class="container justify-between">
+            <div class="logo">
+                <a href="/home.html" class="logo-a"><img src="./home/image/home-logo.jpg">
+                </a>
+            </div>
+            <label for="main-control" class="main-btn">
+                <span>選單</span>
+            </label>
+            <nav class="main-nav">
+    
+                <a href="https://www.cwb.gov.tw/V8/C/W/week.html">天氣預報</a>
+                <a href="/collect.html" class="nav-right">行程收藏</a>
+                <a href="#">自訂行程</a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#account-login" id="account_login">登入</a>
+                <ul class="drop-down-menu hidden">
+                    <li><div class="userImg"></div>
+                        <ul>
+    
+                            <li><a href="/user_Info.html">帳號設定</a>
+                            </li>
+                            <li><a href="/collect.html">我的收藏</a>
+                            </li>
+                            <li><a href="#">自訂行程</a>
+                            </li>
+                            <li class="logout"><a href="home.html">登出</a>
+                            </li>
+                        </ul>
+                    </li>
+    
+                </ul>
+    
+            </nav>
+        </div>
+       
+    </header>
+
+
+
+    <div class="container">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button style="border-radius:100%" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button style="border-radius:100%" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button style="border-radius:100%" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./home/image/carousel1.jpg" class="d-block w-100 " alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./home/image/carousel2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./home/image/carousel3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+
+
+
+    <div class="container mt-4">
+        <h3>熱門活動</h3>
+        <div class="mycarousel" id="hotActive">
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+    <footer class="mt-4">
+        <div class="footer_links row">
+            <div class="col-md-3 col-sm-6" id="footer-know-Travel">
+                <h4>認識Travel makert </h4>
+                <ul class="list-unstyled">
+                    <li class="p">Travel makert</li>
+                    <li class="p">使用者條款</li>
+                    <li class="p">隱私權保護政策</li>
+                    <li class="p">常見問題與幫助</li>
+                    <li class="p">媒體報導</li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6" id="footer-for-travellers">
+                <h4>給旅人</h4>
+                <ul class="list-unstyled">
+                    <li class="p">三大保證</a></li>
+                    <li class="p">官方部落格</li>
+                    <li class="p">會員好禮</li>
+                    <li class="p">兌換商品</li>
+
+                </ul>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6" id="footer-for-partner">
+                <h4>Travel maker 合作夥伴</h4>
+                <ul class="list-unstyled">
+                    <li class="p">成為供應商</li>
+                    <li class="p">成為商城商家</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-6 footer-btn-img">
+                <h4>聯絡我們</h4>
+                <div class="sns">
+                    <ul class="list-unstyled">
+                        <li><img width="60" src="/image/facebook.png"></li>
+                        <li><a href="https://www.youtube.com/channel/UC0WrywZgsEaZRZ2VOG0TpVg" target="_blank"
+                                rel="noopener"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="https://www.instagram.com/kkdaytw/" target="_blank" rel="noopener"><i
+                                    class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://blog.kkday.com/" target="_blank" rel="noopener"><i
+                                    class="fa fa-bold"></i></a>
+                        </li>
+                        <li><img width="60" src="/image/lineicon.png"></li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </footer>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="account-login" tabindex="-1" aria-labelledby="account-login" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <form action="" class="login" id="formLogin">
+
+                    <h1 class="title">Travel Maker 會 員 登 入</h1>
+                    <div class="userEnter">
+                        <input type="text" placeholder="Username" name="username" id="user" style="color: #272727;"
+                            class="inputContent" />
+                        <p class="nameErro"></p>
+                        <input type="password" placeholder="Password" name="password" id="psw" style="color: #272727;"
+                            class="inputContent" />
+                        <p class="pswErro"></p>
+                        <div class="forgetPassword" style="color:#272727;">忘記密碼?</div>
+                        <p class="loginErro"></p>
+                        <input type="button" value="登入" id="btnLogin" />
+                        <div id="registerPage" style="color:#272727; margin-left: 200px;">還未加入Travel Maker?
+                            立即註冊 !
+                        </div>
+
+                    </div>
+                </form>
+
+                <form action="" method="POST" class="register hidden" id="formRegister">
+
+                    <h1 class="title">Travel Maker 會 員 註 冊</h1>
+                    <div class="userEnter">
+                        <div class="userName">
+                            <input type="text" placeholder="輸入帳號" class="inputContent" name="userAccount" id="name" />
+                        </div>
+                        <p class="userErro"></p>
+                        <div class="passWord">
+                            <input type="password" placeholder="輸入密碼" class="inputContent" name="userPassword" id="pass"
+                                maxlength="8" />
+                        </div>
+                        <p class="passErro"></p>
+
+                        <div class="cellPhone">
+                            <input type="text" placeholder="輸入手機" class="inputContent" name="userPhone" id="phone"
+                                maxlength="10" />
+                        </div>
+                        <p class="phoneErro"></p>
+                        <div class="email">
+                            <input type="text" placeholder="輸入電子郵件" class="inputContent" name="userEmail" id="mail" />
+                        </div>
+                        <p class="mailErro"></p>
+                        <input type="button" value="註冊" id="btnRegister" /> <i
+                            class="fa fa-spinner fa-spin fa-2x hidden"></i>
+                        <div class="loginPage" style="color: black;">已成為會員？立即登入</div>
+                    </div>
+                </form>
+                <form action="" method="POST" class="search hidden" id="formSerch">
+
+                    <h1 class="title">Travel Maker 忘記密碼</h1>
+                    <div class="searchEmail">
+                        <div class="userName">
+                            <input type="text" placeholder="輸入信箱" class="inputContent" name="usermail" id="" />
+                        </div>
+                        <p class="searchErro"></p>
+                        
+                        <input type="button" value="確定" id="btnSerch" /> <i
+                            class="fa fa-spinner fa-spin fa-2x hidden"></i>
+                        <div class="toggleLogin" style="color: black;">1111111111</div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="/slick/js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="/public/js/cookies.js"></script>
+    <script src="/slick/js/slick.min.js"></script>
+    <script src="/home/js/cardcontent.js"></script>
+    <script src="/login/js/login.js"></script>
+
+
+
+
+
+</body>
+
+
+
+
+
+</html>

@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TravelMakerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="user_Id" />
+    </Key>
+    <Property Name="user_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userAccount" Type="varchar" MaxLength="20" />
+    <Property Name="userPassword" Type="varchar" MaxLength="20" />
+    <Property Name="userPhone" Type="char" MaxLength="10" />
+    <Property Name="userAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="userEmail" Type="varchar" MaxLength="100" />
+    <Property Name="userPhoto" Type="varchar" MaxLength="20" />
+    <Property Name="registerDate" Type="datetime" />
+    <Property Name="roleAdmin" Type="int" />
+    <Property Name="attractionOwner" Type="int" />
+    <Property Name="travelOwner" Type="varchar" MaxLength="1000" />
+    <Property Name="searchLog" Type="nvarchar" MaxLength="1000" />
+    <Property Name="loginLog" Type="varchar" MaxLength="1000" />
+    <Property Name="OrderLog" Type="varchar" MaxLength="1000" />
+    <Property Name="cart" Type="nvarchar" MaxLength="1000" />
+    <Property Name="userComment" Type="varchar" MaxLength="1000" />
+    <Property Name="userFavorite" Type="varchar" MaxLength="1000" />
+    <Property Name="userMessage" Type="nvarchar" MaxLength="4000" />
+    <Property Name="email_Approved" Type="char" MaxLength="1" />
+    <Property Name="email_ID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Attraction">
+    <Key>
+      <PropertyRef Name="attr_Id" />
+    </Key>
+    <Property Name="attr_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="attrName" Type="nvarchar" MaxLength="50" />
+    <Property Name="position" Type="varchar" MaxLength="50" />
+    <Property Name="attractionOwner" Type="int" />
+    <Property Name="attractionCover" Type="varchar" MaxLength="20" />
+    <Property Name="attractionImages" Type="varchar" MaxLength="1000" />
+    <Property Name="attractionPhone" Type="char" MaxLength="10" />
+    <Property Name="attractionAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="attractionMenu" Type="varchar" MaxLength="1000" />
+    <Property Name="attractionCity" Type="nvarchar" MaxLength="20" />
+    <Property Name="attractionDistrict" Type="nvarchar" MaxLength="20" />
+    <Property Name="attractionType" Type="nvarchar" MaxLength="10" />
+    <Property Name="attractionInfo" Type="nvarchar" MaxLength="1000" />
+    <Property Name="attractionComment" Type="varchar" MaxLength="1000" />
+    <Property Name="attractionRate" Type="varchar" MaxLength="1000" />
+    <Property Name="attractionPrice" Type="money" />
+    <Property Name="travelReferral" Type="varchar" MaxLength="1000" />
+    <Property Name="lastUpdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="cm_Id" />
+    </Key>
+    <Property Name="cm_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="target_Id" Type="int" />
+    <Property Name="user_Id" Type="int" />
+    <Property Name="cmRate" Type="varchar" MaxLength="10" />
+    <Property Name="cmFront" Type="int" />
+    <Property Name="cmGB" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="MapCenter">
+    <Key>
+      <PropertyRef Name="mc_Id" />
+    </Key>
+    <Property Name="mc_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mcName" Type="nvarchar" MaxLength="50" />
+    <Property Name="mcPosition" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="msg_Id" />
+    </Key>
+    <Property Name="msg_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_Id" Type="int" />
+    <Property Name="attr_Id" Type="int" />
+    <Property Name="QA" Type="varchar" MaxLength="10" />
+    <Property Name="message" Type="nvarchar" MaxLength="1000" />
+    <Property Name="date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="order_Id" />
+    </Key>
+    <Property Name="order_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_Id" Type="int" />
+    <Property Name="travel_Id" Type="int" />
+    <Property Name="orderDate" Type="datetime" />
+    <Property Name="orderMessage" Type="nvarchar" MaxLength="1000" />
+    <Property Name="orderCount" Type="int" />
+    <Property Name="orderPrice" Type="money" />
+    <Property Name="orderCost" Type="float" />
+    <Property Name="orderType" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Travel">
+    <Key>
+      <PropertyRef Name="travel_Id" />
+    </Key>
+    <Property Name="travel_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DATA" Type="nvarchar" MaxLength="4000" />
+    <Property Name="travelTitle" Type="nvarchar" MaxLength="100" />
+    <Property Name="travelOwner" Type="int" />
+    <Property Name="travelCover" Type="varchar" MaxLength="20" />
+    <Property Name="userFavorite" Type="varchar" MaxLength="1000" />
+    <Property Name="travelInfo" Type="nvarchar" MaxLength="4000" />
+    <Property Name="travelDate" Type="smalldatetime" />
+    <Property Name="travelCity" Type="nvarchar" MaxLength="20" />
+    <Property Name="travelType" Type="nvarchar" MaxLength="10" />
+    <Property Name="travelComment" Type="varchar" MaxLength="1000" />
+    <Property Name="travelRate" Type="varchar" MaxLength="1000" />
+    <Property Name="attractionReferral" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <Association Name="FK_Attraction_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="Attraction" Type="Self.Attraction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="user_Id" />
+      </Principal>
+      <Dependent Role="Attraction">
+        <PropertyRef Name="attractionOwner" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="user_Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="user_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Attraction">
+    <End Role="Attraction" Type="Self.Attraction" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Attraction">
+        <PropertyRef Name="attr_Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="target_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Comment">
+    <End Role="Comment" Type="Self.Comment" Multiplicity="0..1" />
+    <End Role="Comment1" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment">
+        <PropertyRef Name="cm_Id" />
+      </Principal>
+      <Dependent Role="Comment1">
+        <PropertyRef Name="cmFront" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Travel1">
+    <End Role="Travel" Type="Self.Travel" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Travel">
+        <PropertyRef Name="travel_Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="target_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Message_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="Message" Type="Self.Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="user_Id" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="user_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Message_Attraction">
+    <End Role="Attraction" Type="Self.Attraction" Multiplicity="0..1" />
+    <End Role="Message" Type="Self.Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Attraction">
+        <PropertyRef Name="attr_Id" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="attr_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Travel_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="Travel" Type="Self.Travel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="user_Id" />
+      </Principal>
+      <Dependent Role="Travel">
+        <PropertyRef Name="travelOwner" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TravelMakerModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Attraction" EntityType="Self.Attraction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MapCenter" EntityType="Self.MapCenter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Travel" EntityType="Self.Travel" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Attraction_Account" Association="Self.FK_Attraction_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Attraction" EntitySet="Attraction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Account" Association="Self.FK_Comment_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Attraction" Association="Self.FK_Comment_Attraction">
+      <End Role="Attraction" EntitySet="Attraction" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Comment" Association="Self.FK_Comment_Comment">
+      <End Role="Comment" EntitySet="Comment" />
+      <End Role="Comment1" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Travel1" Association="Self.FK_Comment_Travel1">
+      <End Role="Travel" EntitySet="Travel" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Message_Account" Association="Self.FK_Message_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Message" EntitySet="Message" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Message_Attraction" Association="Self.FK_Message_Attraction">
+      <End Role="Attraction" EntitySet="Attraction" />
+      <End Role="Message" EntitySet="Message" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Travel_Account" Association="Self.FK_Travel_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Travel" EntitySet="Travel" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

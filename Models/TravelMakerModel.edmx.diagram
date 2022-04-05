@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dfe7de5abe3c4e79ac2aa3126971776e" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="TravelMakerModel.Account" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelMakerModel.Attraction" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelMakerModel.Comment" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelMakerModel.Message" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelMakerModel.Order" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelMakerModel.Travel" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="TravelMakerModel.FK_Attraction_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelMakerModel.FK_Comment_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelMakerModel.FK_Message_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelMakerModel.FK_Travel_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelMakerModel.FK_Comment_Attraction" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelMakerModel.FK_Message_Attraction" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelMakerModel.FK_Comment_Comment" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelMakerModel.FK_Comment_Travel1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TravelMakerModel.MapCenter" Width="1.5" PointX="7.375" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
