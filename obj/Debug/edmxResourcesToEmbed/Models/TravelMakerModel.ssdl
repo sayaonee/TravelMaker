@@ -21,6 +21,7 @@
     <Property Name="cart" Type="nvarchar" MaxLength="1000" />
     <Property Name="userComment" Type="varchar" MaxLength="1000" />
     <Property Name="userFavorite" Type="varchar" MaxLength="1000" />
+    <Property Name="userTravel" Type="varchar" MaxLength="1000" />
     <Property Name="userMessage" Type="nvarchar" MaxLength="4000" />
     <Property Name="email_Approved" Type="char" MaxLength="1" />
     <Property Name="email_ID" Type="uniqueidentifier" Nullable="false" />
@@ -33,7 +34,7 @@
     <Property Name="attrName" Type="nvarchar" MaxLength="50" />
     <Property Name="position" Type="varchar" MaxLength="50" />
     <Property Name="attractionOwner" Type="int" />
-    <Property Name="attractionCover" Type="varchar" MaxLength="20" />
+    <Property Name="attractionCover" Type="varchar" MaxLength="100" />
     <Property Name="attractionImages" Type="varchar" MaxLength="1000" />
     <Property Name="attractionPhone" Type="char" MaxLength="10" />
     <Property Name="attractionAddress" Type="nvarchar" MaxLength="100" />

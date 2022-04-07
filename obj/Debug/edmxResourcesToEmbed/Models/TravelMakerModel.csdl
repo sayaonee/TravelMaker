@@ -28,6 +28,7 @@
     <NavigationProperty Name="Travel" Relationship="Self.FK_Travel_Account" FromRole="Account" ToRole="Travel" />
     <Property Name="email_ID" Type="Guid" Nullable="false" />
     <Property Name="email_Approved" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="userTravel" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Attraction">
     <Key>
@@ -36,7 +37,7 @@
     <Property Name="attr_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="attractionOwner" Type="Int32" />
-    <Property Name="attractionCover" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="attractionCover" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="attractionImages" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
     <Property Name="attractionPhone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
     <Property Name="attractionAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />

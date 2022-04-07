@@ -35,6 +35,45 @@ namespace TravelMaker.Controllers
             }
             return Ok(attractions);
         }
+        [HttpPost]
+        // POST api/Attraction/PostAttractionDetail
+        [ResponseType(typeof(Attraction))]
+        public IHttpActionResult PostAttractionDetail(Attraction attraction)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var attractionById = db.Attraction.FirstOrDefault(p => p.attr_Id == attraction.attr_Id);
+            if (attraction.attractionPhone != null)
+            {
+                attractionById.attractionPhone = attraction.attractionPhone;
+            }
+            if (attraction.attractionPrice != null)
+            {
+                attractionById.attractionPrice = attraction.attractionPrice;
+            }
+            if (attraction.attrName != null)
+            {
+                attractionById.attrName = attraction.attrName;
+            }
+            if (attraction.attractionAddress != null)
+            {
+                attractionById.attractionAddress = attraction.attractionAddress;
+            }
+            if (attraction.attractionType != null)
+            {
+                attractionById.attractionType = attraction.attractionType;
+
+            }
+            if (attraction.attractionImages != null)
+            {
+                attractionById.attractionImages = attraction.attractionImages;
+            }
+
+            db.SaveChanges();
+            return CreatedAtRoute("ActionApi", new { id = attraction.attr_Id }, attraction);
+        }
         [HttpGet]
         // GET:api/Attraction/homeAttraction
         public IHttpActionResult homeAttraction()

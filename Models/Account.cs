@@ -43,6 +43,7 @@ namespace TravelMaker.Models
         public string userMessage { get; set; }
         public System.Guid email_ID { get; set; }
         public string email_Approved { get; set; }
+        public string userTravel { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Attraction> Attraction { get; set; }

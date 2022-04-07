@@ -255,6 +255,10 @@ namespace TravelMaker.Controllers
             {
                 accountById.userFavorite = account.userFavorite;
             }
+            if (account.userTravel != null)
+            {
+                accountById.userTravel = account.userTravel;
+            }
             db.SaveChanges();
             return CreatedAtRoute("ActionApi", new { id = account.user_Id }, account);
         }
@@ -289,7 +293,8 @@ namespace TravelMaker.Controllers
                     p.email_Approved,
                     p.userPhoto,
                     p.userFavorite,
-                    p.travelOwner
+                    p.travelOwner,
+                    p.userTravel
                 });
                 var accountResult = accountSimple.FirstOrDefault(p => p.userAccount == targetAccount);
                 return CreatedAtRoute("ActionApi", accountResult.user_Id , accountResult);

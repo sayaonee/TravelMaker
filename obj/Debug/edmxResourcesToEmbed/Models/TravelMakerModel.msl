@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Account">
       <EntityTypeMapping TypeName="TravelMakerModel.Account">
         <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="userTravel" ColumnName="userTravel" />
           <ScalarProperty Name="email_Approved" ColumnName="email_Approved" />
           <ScalarProperty Name="email_ID" ColumnName="email_ID" />
           <ScalarProperty Name="user_Id" ColumnName="user_Id" />
