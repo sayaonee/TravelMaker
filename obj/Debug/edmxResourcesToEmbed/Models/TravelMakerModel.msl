@@ -94,11 +94,11 @@
     <EntitySetMapping Name="Travel">
       <EntityTypeMapping TypeName="TravelMakerModel.Travel">
         <MappingFragment StoreEntitySet="Travel">
+          <ScalarProperty Name="travelMap" ColumnName="travelMap" />
           <ScalarProperty Name="travelTitle" ColumnName="travelTitle" />
           <ScalarProperty Name="travel_Id" ColumnName="travel_Id" />
           <ScalarProperty Name="DATA" ColumnName="DATA" />
           <ScalarProperty Name="travelOwner" ColumnName="travelOwner" />
-          <ScalarProperty Name="travelCover" ColumnName="travelCover" />
           <ScalarProperty Name="userFavorite" ColumnName="userFavorite" />
           <ScalarProperty Name="travelInfo" ColumnName="travelInfo" />
           <ScalarProperty Name="travelDate" ColumnName="travelDate" />

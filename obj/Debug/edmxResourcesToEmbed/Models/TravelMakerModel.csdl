@@ -106,7 +106,6 @@
     <Property Name="travel_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="DATA" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
     <Property Name="travelOwner" Type="Int32" />
-    <Property Name="travelCover" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="userFavorite" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
     <Property Name="travelInfo" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
     <Property Name="travelDate" Type="DateTime" Precision="0" />
@@ -118,6 +117,7 @@
     <NavigationProperty Name="Account" Relationship="Self.FK_Travel_Account" FromRole="Travel" ToRole="Account" />
     <NavigationProperty Name="Comment" Relationship="Self.FK_Comment_Travel1" FromRole="Travel" ToRole="Comment" />
     <Property Name="travelTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="travelMap" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_Attraction_Account">
     <End Role="Account" Type="Self.Account" Multiplicity="0..1" />

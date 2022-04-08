@@ -106,7 +106,7 @@
           <Property Name="DATA" Type="nvarchar" MaxLength="4000" />
           <Property Name="travelTitle" Type="nvarchar" MaxLength="100" />
           <Property Name="travelOwner" Type="int" />
-          <Property Name="travelCover" Type="varchar" MaxLength="20" />
+          <Property Name="travelMap" Type="varchar" MaxLength="1000" />
           <Property Name="userFavorite" Type="varchar" MaxLength="1000" />
           <Property Name="travelInfo" Type="nvarchar" MaxLength="4000" />
           <Property Name="travelDate" Type="smalldatetime" />
@@ -363,7 +363,6 @@
           <Property Name="travel_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DATA" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Name="travelOwner" Type="Int32" />
-          <Property Name="travelCover" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="userFavorite" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="travelInfo" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Name="travelDate" Type="DateTime" Precision="0" />
@@ -375,6 +374,7 @@
           <NavigationProperty Name="Account" Relationship="Self.FK_Travel_Account" FromRole="Travel" ToRole="Account" />
           <NavigationProperty Name="Comment" Relationship="Self.FK_Comment_Travel1" FromRole="Travel" ToRole="Comment" />
           <Property Name="travelTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="travelMap" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Attraction_Account">
           <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
@@ -620,11 +620,11 @@
           <EntitySetMapping Name="Travel">
             <EntityTypeMapping TypeName="TravelMakerModel.Travel">
               <MappingFragment StoreEntitySet="Travel">
+                <ScalarProperty Name="travelMap" ColumnName="travelMap" />
                 <ScalarProperty Name="travelTitle" ColumnName="travelTitle" />
                 <ScalarProperty Name="travel_Id" ColumnName="travel_Id" />
                 <ScalarProperty Name="DATA" ColumnName="DATA" />
                 <ScalarProperty Name="travelOwner" ColumnName="travelOwner" />
-                <ScalarProperty Name="travelCover" ColumnName="travelCover" />
                 <ScalarProperty Name="userFavorite" ColumnName="userFavorite" />
                 <ScalarProperty Name="travelInfo" ColumnName="travelInfo" />
                 <ScalarProperty Name="travelDate" ColumnName="travelDate" />

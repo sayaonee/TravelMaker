@@ -101,7 +101,7 @@
     <Property Name="DATA" Type="nvarchar" MaxLength="4000" />
     <Property Name="travelTitle" Type="nvarchar" MaxLength="100" />
     <Property Name="travelOwner" Type="int" />
-    <Property Name="travelCover" Type="varchar" MaxLength="20" />
+    <Property Name="travelMap" Type="varchar" MaxLength="1000" />
     <Property Name="userFavorite" Type="varchar" MaxLength="1000" />
     <Property Name="travelInfo" Type="nvarchar" MaxLength="4000" />
     <Property Name="travelDate" Type="smalldatetime" />

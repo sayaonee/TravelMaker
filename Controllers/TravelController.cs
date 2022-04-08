@@ -45,21 +45,87 @@ namespace TravelMaker.Controllers
 
             return Ok(travel);
         }
-        // POST: api/Travel/PostTravel
+        // POST: api/Travel/AddTravel
         [ResponseType(typeof(Travel))]
-        public IHttpActionResult PostTravel(Travel travel)
+        public IHttpActionResult AddTravel(Travel travel)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             travel.travelDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+            if (travel.travelOwner != null)
+            {
+                var accountById = db.Account.FirstOrDefault(p => p.user_Id == travel.travelOwner);
+                if (accountById.travelOwner != null)
+                {
+                    accountById.travelOwner += "," + travel.travelOwner.ToString();
+                }
+                else
+                {
+                    accountById.travelOwner = travel.travelOwner.ToString();
+                }
+            }
+
             db.Travel.Add(travel);
             db.SaveChanges();
 
             return CreatedAtRoute("ActionApi", new { id = travel.travel_Id }, travel);
         }
+        [HttpPost]
+        // POST api/Travel/EditTravel
+        [ResponseType(typeof(Travel))]
+        public IHttpActionResult EditTravel (Travel travel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var travelById = db.Travel.FirstOrDefault(p => p.travel_Id == travel.travel_Id);
+            if (travel.DATA != null)
+            {
+                travelById.DATA = travel.DATA;
+            }
+            if (travel.travelTitle != null)
+            {
+                travelById.travelTitle = travel.travelTitle;
+            }
+            if (travel.travelOwner != null)
+            {
+                travelById.travelOwner = travel.travelOwner;
+            }
+            if (travel.travelMap != null)
+            {
+                travelById.travelMap = travel.travelMap;
+            }
+            if (travel.travelInfo != null)
+            {
+                travelById.travelInfo = travel.travelInfo;
+            }
+            if (travel.travelCity != null)
+            {
+                travelById.travelCity = travel.travelCity;
+            }
+            if (travel.travelType != null)
+            {
+                travelById.travelType = travel.travelType;
+            }
+            if (travel.travelComment != null)
+            {
+                travelById.travelComment = travel.travelComment;
+            }
+            if (travel.travelRate != null)
+            {
+                travelById.travelRate = travel.travelRate;
+            }
+            if (travel.attractionReferral != null)
+            {
+                travelById.attractionReferral = travel.attractionReferral;
+            }
 
+            db.SaveChanges();
+            return CreatedAtRoute("ActionApi", new { id = travel.travel_Id }, travel);
+        }
         // DELETE: api/Travels/5
         [ResponseType(typeof(Travel))]
         public IHttpActionResult DeleteTravel(int id)

@@ -23,7 +23,6 @@ namespace TravelMaker.Models
         public int travel_Id { get; set; }
         public string DATA { get; set; }
         public Nullable<int> travelOwner { get; set; }
-        public string travelCover { get; set; }
         public string userFavorite { get; set; }
         public string travelInfo { get; set; }
         public Nullable<System.DateTime> travelDate { get; set; }
@@ -33,6 +32,7 @@ namespace TravelMaker.Models
         public string travelRate { get; set; }
         public string attractionReferral { get; set; }
         public string travelTitle { get; set; }
+        public string travelMap { get; set; }
     
         public virtual Account Account { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

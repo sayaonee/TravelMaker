@@ -23,6 +23,41 @@ namespace TravelMaker.Controllers
         {
             return View();
         }
+        public ActionResult Welcome()
+        {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
+            return View();
+        }
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(LoginViewModel vModel)
+        {
+            bool userCheck = false;
+            string targetAccount = null;
+            var accounts = db.Account;
+            foreach (var p in accounts)
+            {
+                if (vModel.userAccount == p.userAccount && vModel.userPassword == p.userPassword)
+                {
+                    userCheck = true;
+                    targetAccount = vModel.userAccount;
+                }
+            }
+            if (userCheck)
+            {
+                Session[userDictionary.TM_LOGIN_USER] = targetAccount;
+                return RedirectToAction("Welcome");
+            }
+            else
+            {
+                ViewBag.AccountMsg = "登入失敗";
+                return View();
+            }
+        }
         public ActionResult MapCenter()
         {
             var MCdata = db.MapCenter;

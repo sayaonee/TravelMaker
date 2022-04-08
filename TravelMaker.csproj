@@ -247,6 +247,7 @@
       <DependentUpon>TravelMakerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AttractionMakerMetadata.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\TravelMakerMetadata.cs" />
     <Compile Include="Models\AccountMetadata.cs" />
     <Compile Include="Models\MapCenter.cs">
@@ -276,6 +277,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TravelMakerModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\userDictionary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -333,6 +335,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Active.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Welcome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />
