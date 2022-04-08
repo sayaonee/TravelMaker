@@ -53,6 +53,7 @@
           <Property Name="attractionPrice" Type="money" />
           <Property Name="travelReferral" Type="varchar" MaxLength="1000" />
           <Property Name="lastUpdate" Type="datetime" />
+          <Property Name="attractionCount" Type="int" />
         </EntityType>
         <EntityType Name="Comment">
           <Key>
@@ -312,6 +313,7 @@
           <NavigationProperty Name="Message" Relationship="Self.FK_Message_Attraction" FromRole="Attraction" ToRole="Message" />
           <Property Name="attrName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="attractionDistrict" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="attractionCount" Type="Int32" />
         </EntityType>
         <EntityType Name="Comment">
           <Key>
@@ -557,6 +559,7 @@
           <EntitySetMapping Name="Attraction">
             <EntityTypeMapping TypeName="TravelMakerModel.Attraction">
               <MappingFragment StoreEntitySet="Attraction">
+                <ScalarProperty Name="attractionCount" ColumnName="attractionCount" />
                 <ScalarProperty Name="attractionDistrict" ColumnName="attractionDistrict" />
                 <ScalarProperty Name="attrName" ColumnName="attrName" />
                 <ScalarProperty Name="attr_Id" ColumnName="attr_Id" />

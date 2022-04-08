@@ -11,6 +11,7 @@ using System.Net.Http;
 using System.Web.Http.Description;
 using TravelMaker.Models;
 using System.IO;
+using EntityFramework.Extensions;
 
 namespace TravelMaker.Controllers
 {
@@ -21,6 +22,8 @@ namespace TravelMaker.Controllers
         //發佈用
         public ActionResult Index()
         {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
             return View();
         }
         public ActionResult Welcome()
@@ -28,6 +31,127 @@ namespace TravelMaker.Controllers
             if (Session[userDictionary.TM_LOGIN_USER] == null)
                 return RedirectToAction("Login");
             return View();
+        }
+        public ActionResult AccountCreate()
+        {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
+            return View();
+        }
+        public ActionResult AccountIndex()
+        {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
+            return View(db.Account);
+        }
+        public ActionResult AccountEdit(int? id)
+        {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
+            if (id == null)
+                return RedirectToAction("AccountIndex");
+            return View(db.Account.FirstOrDefault(p => p.user_Id == id));
+        }
+        [HttpPost]
+        public ActionResult AccountEdit(Account account)
+        {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
+            var accountById = db.Account.FirstOrDefault(p => p.user_Id == account.user_Id);
+            accountById.userAccount = account.userAccount;
+            accountById.userPassword = account.userPassword;
+            accountById.userPhone = account.userPhone;
+            accountById.userAddress = account.userAddress;
+            accountById.userEmail = account.userEmail;
+            accountById.registerDate = account.registerDate;
+            accountById.roleAdmin = account.roleAdmin;
+            accountById.attractionOwner = account.attractionOwner;
+            accountById.travelOwner = account.travelOwner;
+            accountById.userFavorite = account.userFavorite;
+            accountById.email_ID = account.email_ID;
+            accountById.email_Approved = account.email_Approved;
+            accountById.userTravel = account.userTravel;
+            db.SaveChanges();
+            return RedirectToAction("AccountIndex");
+        }
+        [HttpPost]
+        public ActionResult AccountSave(Account account)
+        {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
+            db.Account.Add(account);
+            db.SaveChanges();
+            return RedirectToAction("AccountIndex");
+        }
+        public ActionResult AccountDelete(int? id)
+        {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
+            if (id == null)
+                return RedirectToAction("AccountIndex");
+            db.Account.Delete(p => p.user_Id == id);
+            db.SaveChanges();
+            return RedirectToAction("AccountIndex");
+        }
+        public ActionResult AttractionCreate()
+        {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
+            return View();
+        }
+        public ActionResult AttractionIndex()
+        {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
+            return View(db.Attraction);
+        }
+        public ActionResult AttractionEdit(int? id)
+        {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
+            if (id == null)
+                return RedirectToAction("AttractionIndex");
+            return View(db.Attraction.FirstOrDefault(p => p.attr_Id == id));
+        }
+        [HttpPost]
+        public ActionResult AttractionEdit(Attraction attraction)
+        {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
+            var attractionById = db.Attraction.FirstOrDefault(p => p.attr_Id == attraction.attr_Id);
+            attractionById.position = attraction.position;
+            attractionById.attractionCover = attraction.attractionCover;
+            attractionById.attractionPhone = attraction.attractionPhone;
+            attractionById.attractionAddress = attraction.attractionAddress;
+            attractionById.attractionCity = attraction.attractionCity;
+            attractionById.attractionType = attraction.attractionType;
+            attractionById.attractionInfo = attraction.attractionInfo;
+            attractionById.attractionPrice = attraction.attractionPrice;
+            attractionById.lastUpdate = attraction.lastUpdate;
+            attractionById.attrName = attraction.attrName;
+            attractionById.attractionDistrict = attraction.attractionDistrict;
+            attractionById.attractionCount = attraction.attractionCount;
+            attractionById.attractionOwner = attraction.attractionOwner;
+            db.SaveChanges();
+            return RedirectToAction("AttractionIndex");
+        }
+        public ActionResult AttractionDelete(int? id)
+        {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
+            if (id == null)
+                return RedirectToAction("AttractionIndex");
+            db.Attraction.Delete(p => p.attr_Id == id);
+            db.SaveChanges();
+            return RedirectToAction("AttractionIndex");
+        }
+        public ActionResult AttractionSave(Attraction attraction)
+        {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
+            db.Attraction.Add(attraction);
+            db.SaveChanges();
+            return RedirectToAction("AttractionIndex");
         }
         public ActionResult Login()
         {
@@ -73,7 +197,7 @@ namespace TravelMaker.Controllers
             });
             foreach (var p in accountsActive)
             {
-                if(activeToken == p.email_ID.ToString())
+                if (activeToken == p.email_ID.ToString())
                 {
                     accountsActived = p.userAccount;
                 }

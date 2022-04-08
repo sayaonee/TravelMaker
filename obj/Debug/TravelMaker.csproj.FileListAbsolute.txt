@@ -146,3 +146,6 @@ C:\0315\TravelMaker\bin\System.Text.Encodings.Web.xml
 C:\0315\TravelMaker\bin\Swashbuckle.Core.dll
 C:\0315\TravelMaker\bin\WebActivatorEx.dll
 C:\0315\TravelMaker\bin\SwaggerSample.WebAPI.xml
+C:\0315\TravelMaker\bin\EntityFramework.Extended.dll
+C:\0315\TravelMaker\bin\EntityFramework.Extended.xml
+C:\0315\TravelMaker\bin\EntityFramework.Extended.dll.config

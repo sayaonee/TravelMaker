@@ -33,7 +33,28 @@ namespace TravelMaker.Controllers
             {
                 return NotFound();
             }
+            int countValue = 0;
+            if (userDictionary.TM_ATTRACTION_COUNT.TryGetValue(id, out countValue))
+            {
+                userDictionary.TM_ATTRACTION_COUNT[id] += 1;
+            }
+            else
+            {
+                userDictionary.TM_ATTRACTION_COUNT.Add(id, 1);
+            }
             return Ok(attractions);
+        }
+        [HttpGet]
+        // GET:api/Attraction/GetAttractionCount
+        public IHttpActionResult GetAttractionCount()
+        {
+            foreach (KeyValuePair<int, int> item in userDictionary.TM_ATTRACTION_COUNT)
+            {
+                var attractionById = db.Attraction.FirstOrDefault(p => p.attr_Id == item.Key);
+                attractionById.attractionCount = item.Value;
+            };
+            db.SaveChanges();
+            return Ok(userDictionary.TM_ATTRACTION_COUNT);
         }
         [HttpPost]
         // POST api/Attraction/PostAttractionDetail
@@ -69,6 +90,10 @@ namespace TravelMaker.Controllers
             if (attraction.attractionImages != null)
             {
                 attractionById.attractionImages = attraction.attractionImages;
+            }
+            if (attraction.attractionCover != null)
+            {
+                attractionById.attractionCover = attraction.attractionCover;
             }
 
             db.SaveChanges();

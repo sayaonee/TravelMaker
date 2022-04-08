@@ -1,0 +1,107 @@
+﻿@model IEnumerable<TravelMaker.Models.Account>
+
+@{
+    ViewBag.Title = "AccountIndex";
+}
+
+<h2>帳號管理</h2>
+
+<p>
+    @Html.ActionLink("新建帳號", "AccountCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.userAccount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userPassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.registerDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.roleAdmin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.attractionOwner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.travelOwner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userFavorite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email_Approved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userTravel)
+        </th>
+        <th>編輯</th>
+        <th>刪除</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.userAccount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userPassword)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.registerDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.roleAdmin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.attractionOwner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.travelOwner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userFavorite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email_Approved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userTravel)
+        </td>
+        <td>
+            @Html.ActionLink("編輯", "AccountEdit", new { id=item.user_Id })
+        </td>
+        <td>
+            @Html.ActionLink("刪除", "AccountDelete", new { id = item.user_Id })
+        </td>
+    </tr>
+}
+
+</table>

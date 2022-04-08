@@ -48,6 +48,7 @@
     <Property Name="attractionPrice" Type="money" />
     <Property Name="travelReferral" Type="varchar" MaxLength="1000" />
     <Property Name="lastUpdate" Type="datetime" />
+    <Property Name="attractionCount" Type="int" />
   </EntityType>
   <EntityType Name="Comment">
     <Key>

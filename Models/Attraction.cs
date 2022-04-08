@@ -39,6 +39,7 @@ namespace TravelMaker.Models
         public Nullable<System.DateTime> lastUpdate { get; set; }
         public string attrName { get; set; }
         public string attractionDistrict { get; set; }
+        public Nullable<int> attractionCount { get; set; }
     
         public virtual Account Account { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

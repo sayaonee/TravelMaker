@@ -31,6 +31,7 @@
     <EntitySetMapping Name="Attraction">
       <EntityTypeMapping TypeName="TravelMakerModel.Attraction">
         <MappingFragment StoreEntitySet="Attraction">
+          <ScalarProperty Name="attractionCount" ColumnName="attractionCount" />
           <ScalarProperty Name="attractionDistrict" ColumnName="attractionDistrict" />
           <ScalarProperty Name="attrName" ColumnName="attrName" />
           <ScalarProperty Name="attr_Id" ColumnName="attr_Id" />

@@ -1,0 +1,120 @@
+﻿@model IEnumerable<TravelMaker.Models.Attraction>
+
+@{
+    ViewBag.Title = "AttractionIndex";
+}
+
+<h2>景點管理</h2>
+
+<p>
+    @Html.ActionLink("新建景點", "AttractionCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.position)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.attractionCover)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.attractionPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.attractionAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.attractionCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.attractionType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.attractionInfo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.attractionPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastUpdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.attrName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.attractionDistrict)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.attractionCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.attractionOwner)
+        </th>
+        <th>編輯</th>
+        <th>刪除</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.position)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.attractionCover)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.attractionPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.attractionAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.attractionCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.attractionType)
+        </td>
+        <td>
+            @{ if (item.attractionInfo.Length > 10)
+                {
+                    string attractinoInfo = item.attractionInfo.Substring(0, 10);
+                    item.attractionInfo = attractinoInfo + "...";
+                }
+                else
+                {
+                    string attractinoInfo = item.attractionInfo;
+                    item.attractionInfo = attractinoInfo;
+                }
+
+            }
+            @item.attractionInfo
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.attractionPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastUpdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.attrName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.attractionDistrict)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.attractionCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.attractionOwner)
+        </td>
+        <td>
+            @Html.ActionLink("編輯", "AttractionEdit", new { id=item.attr_Id })
+        </td>
+        <td>
+            @Html.ActionLink("刪除", "AttractionDelete", new { id = item.attr_Id })
+        </td>
+    </tr>
+}
+
+</table>

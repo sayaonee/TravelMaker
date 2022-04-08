@@ -259,6 +259,10 @@ namespace TravelMaker.Controllers
             {
                 accountById.userTravel = account.userTravel;
             }
+            if (account.travelOwner != null)
+            {
+                accountById.travelOwner = account.travelOwner;
+            }
             db.SaveChanges();
             return CreatedAtRoute("ActionApi", new { id = account.user_Id }, account);
         }

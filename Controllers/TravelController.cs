@@ -54,20 +54,21 @@ namespace TravelMaker.Controllers
                 return BadRequest(ModelState);
             }
             travel.travelDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
-            if (travel.travelOwner != null)
-            {
-                var accountById = db.Account.FirstOrDefault(p => p.user_Id == travel.travelOwner);
-                if (accountById.travelOwner != null)
-                {
-                    accountById.travelOwner += "," + travel.travelOwner.ToString();
-                }
-                else
-                {
-                    accountById.travelOwner = travel.travelOwner.ToString();
-                }
-            }
-
             db.Travel.Add(travel);
+            db.SaveChanges();
+            if (travel.travelOwner == null)
+            {
+                return BadRequest("沒有輸入TravelOwner");
+            }
+            var accountById = db.Account.FirstOrDefault(p => p.user_Id == travel.travelOwner);
+            char[] rowChar = { ',' };
+            List<string> travelOwnerL = new List<string>(accountById.travelOwner.Split(rowChar));
+            if (travelOwnerL.Contains(travel.travel_Id.ToString()) != true)
+            {
+                travelOwnerL.Add(travel.travel_Id.ToString());
+            }
+            accountById.travelOwner = String.Join(",", travelOwnerL);
+            accountById.userTravel = null;
             db.SaveChanges();
 
             return CreatedAtRoute("ActionApi", new { id = travel.travel_Id }, travel);
@@ -75,7 +76,7 @@ namespace TravelMaker.Controllers
         [HttpPost]
         // POST api/Travel/EditTravel
         [ResponseType(typeof(Travel))]
-        public IHttpActionResult EditTravel (Travel travel)
+        public IHttpActionResult EditTravel(Travel travel)
         {
             if (!ModelState.IsValid)
             {
