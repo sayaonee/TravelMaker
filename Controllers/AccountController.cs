@@ -298,7 +298,8 @@ namespace TravelMaker.Controllers
                     p.userPhoto,
                     p.userFavorite,
                     p.travelOwner,
-                    p.userTravel
+                    p.userTravel,
+                    p.attractionOwner
                 });
                 var accountResult = accountSimple.FirstOrDefault(p => p.userAccount == targetAccount);
                 return CreatedAtRoute("ActionApi", accountResult.user_Id , accountResult);

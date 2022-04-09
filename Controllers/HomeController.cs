@@ -153,6 +153,48 @@ namespace TravelMaker.Controllers
             db.SaveChanges();
             return RedirectToAction("AttractionIndex");
         }
+        public ActionResult TravelIndex()
+        {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
+            return View(db.Travel);
+        }
+        public ActionResult TravelEdit(int? id)
+        {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
+            if (id == null)
+                return RedirectToAction("TravelIndex");
+            return View(db.Travel.FirstOrDefault(p => p.travel_Id == id));
+        }
+        [HttpPost]
+        public ActionResult TravelEdit(Travel travel)
+        {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
+            var travelById = db.Travel.FirstOrDefault(p => p.travel_Id == travel.travel_Id);
+            travelById.DATA = travel.DATA;
+            travelById.travelTitle = travel.travelTitle;
+            travelById.travelOwner = travel.travelOwner;
+            travelById.travelMap = travel.travelMap;
+            travelById.travelDate = travel.travelDate;
+            travelById.travelCity = travel.travelCity;
+            travelById.travelType = travel.travelType;
+            travelById.attractionReferral = travel.attractionReferral;
+
+            db.SaveChanges();
+            return RedirectToAction("TravelIndex");
+        }
+        public ActionResult TravelDelete(int? id)
+        {
+            if (Session[userDictionary.TM_LOGIN_USER] == null)
+                return RedirectToAction("Login");
+            if (id == null)
+                return RedirectToAction("TravelIndex");
+            db.Travel.Delete(p => p.travel_Id == id);
+            db.SaveChanges();
+            return RedirectToAction("TravelIndex");
+        }
         public ActionResult Login()
         {
             return View();

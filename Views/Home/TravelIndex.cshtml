@@ -1,0 +1,107 @@
+﻿@model IEnumerable<TravelMaker.Models.Travel>
+
+@{
+    ViewBag.Title = "TravelIndex";
+}
+
+<h2>行程管理</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DATA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.travelDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.travelCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.travelType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.attractionReferral)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.travelTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.travelMap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.travelOwner)
+        </th>
+        <th>編輯</th>
+        <th>刪除</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @{ if (item.DATA == null)
+                    {
+                        string DATA = item.DATA;
+                        item.DATA = DATA;
+                    }
+                    else if (item.DATA.Length < 10)
+                    {
+                        string DATA = item.DATA;
+                        item.DATA = DATA;
+                    }
+                    else
+                    {
+                        string DATA = item.DATA.Substring(0, 10);
+                        item.DATA = DATA + "...";
+                    }
+                }
+                @item.DATA
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.travelDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.travelCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.travelType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.attractionReferral)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.travelTitle)
+            </td>
+            <td>
+                @{ if (item.travelMap == null)
+                    {
+                        string MAP = item.travelMap;
+                        item.travelMap = MAP;
+                    }
+                    else if (item.travelMap.Length < 10)
+                    {
+                        string MAP = item.travelMap;
+                        item.travelMap = MAP;
+                    }
+                    else
+                    {
+                        string MAP = item.travelMap.Substring(0, 10);
+                        item.travelMap = MAP + "...";
+                    }
+                }
+                @item.DATA
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.travelOwner)
+            </td>
+            <td>
+                @Html.ActionLink("編輯", "TravelEdit", new { id = item.travel_Id })
+            </td>
+            <td>
+                @Html.ActionLink("刪除", "TravelDelete", new { id = item.travel_Id })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -346,6 +346,8 @@
     <Content Include="Views\Home\AttractionIndex.cshtml" />
     <Content Include="Views\Home\AttractionEdit.cshtml" />
     <Content Include="Views\Home\AttractionCreate.cshtml" />
+    <Content Include="Views\Home\TravelIndex.cshtml" />
+    <Content Include="Views\Home\TravelEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />

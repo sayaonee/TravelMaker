@@ -112,23 +112,35 @@ namespace TravelMaker.Controllers
             List<Attraction> rainL = new List<Attraction>();
             List<Attraction> mysteryL = new List<Attraction>();
             Dictionary<string, List<Attraction>> homeAttraction = new Dictionary<string, List<Attraction>>();
+            var hotAttraction = db.Attraction.OrderByDescending(p => p.attractionCount);
             int dbCount = db.Attraction.Count() + 1;
+            int hotCount = 0;
             Random rnd = new Random();
-            for (int i = 0; i < 8; i++)
+            foreach(var p in hotAttraction)
             {
-                int rndId = rnd.Next(1, dbCount);
-                if (duplicated.Contains(rndId))
+                hotActiveL.Add(db.Attraction.Find(p.attr_Id));
+                duplicated.Add(p.attr_Id);
+                hotCount += 1;
+                if (hotCount == 5)
                 {
-                    i--;
-                }
-                else
-                {
-                    Attraction rndAttraction = db.Attraction.Find(rndId);
-                    hotActiveL.Add(rndAttraction);
-                    duplicated.Add(rndId);
+                    break;
                 }
             }
-            for (int i = 0; i < 5; i++)
+            //for (int i = 0; i < 8; i++)
+            //{
+            //    int rndId = rnd.Next(1, dbCount);
+            //    if (duplicated.Contains(rndId))
+            //    {
+            //        i--;
+            //    }
+            //    else
+            //    {
+            //        Attraction rndAttraction = db.Attraction.Find(rndId);
+            //        hotActiveL.Add(rndAttraction);
+            //        duplicated.Add(rndId);
+            //    }
+            //}
+            for (int i = 0; i < 8; i++)
             {
                 int rndId = rnd.Next(1, dbCount);
                 if (duplicated.Contains(rndId))
